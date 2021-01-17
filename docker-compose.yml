@@ -1,0 +1,45 @@
+version: "3.5"
+
+services:
+  pyspark-notebook:
+    networks:
+      - default
+    build:
+      context: docker/images/pyspark-notebook/
+      dockerfile: Dockerfile
+    image: pyspark-notebook
+    restart: always
+    container_name: pyspark-notebook
+    ports:
+      - "8888:8888"
+    volumes:
+      - "./PysparkData/:/home/teamlab/"
+  db:
+    networks:
+      - default
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: postgrespw
+      POSTGRES_DB: postgresdb
+    container_name: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./docker/volumes/postgres:/var/lib/postgresql/data/
+  web:
+    build: ./docker/images/django/
+    command: python ./DjangoApi/manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./docker/volumes/django:/django-app/
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    networks:
+      - default
+
+networks:
+  default:
+    name: jupyter
+
