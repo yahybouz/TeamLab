@@ -7,13 +7,13 @@ services:
     build:
       context: docker/images/pyspark-notebook/
       dockerfile: Dockerfile
+    command: python Preprocess.py
     image: pyspark-notebook
-    restart: always
     container_name: pyspark-notebook
     ports:
       - "8888:8888"
     volumes:
-      - "./PysparkData/:/home/teamlab/"
+      - "./PysparkData/:/home/jovyan/"
   db:
     networks:
       - default
