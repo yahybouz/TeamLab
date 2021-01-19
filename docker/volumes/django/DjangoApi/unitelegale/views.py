@@ -32,7 +32,7 @@ def unitelegale_detail(request, siren_id):
 def unitelegales_detail(request,siren_id):
 
 
-    unitelegale = Unitelegale.objects.filter(siren=siren_id).explain()
+    unitelegale = Unitelegale.objects.filter(siren=siren_id)
         
     if request.method == 'GET': 
         unitelegale_serializer = UnitelegaleSerializer(unitelegale, many=True)
