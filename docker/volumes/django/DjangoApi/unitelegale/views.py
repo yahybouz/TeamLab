@@ -16,13 +16,13 @@ def unitelegale_detail(request, siren_id):
     Get unitelegale information by siren identifier
     '''
     try: 
-        unitelegale = Unitelegale.objects.get(pk=siren_id)
+        unitelegale = Unitelegale.objects.filter().get(pk=siren_id)
         print(unitelegale)
     except Unitelegale.DoesNotExist: 
         return JsonResponse({'message': 'Siren does not exist'}, status=status.HTTP_404_NOT_FOUND) 
 
     if request.method == 'GET': 
-        unitelegale_serializer = UnitelegaleSerializer(unitelegale) 
+        unitelegale_serializer = UnitelegaleSerializer(unitelegale)
         return JsonResponse(unitelegale_serializer.data)
    
 
@@ -32,7 +32,7 @@ def unitelegale_detail(request, siren_id):
 def unitelegales_detail(request,siren_id):
 
 
-    unitelegale = Unitelegale.objects.filter(siren=siren_id)
+    unitelegale = Unitelegale.objects.filter(siren=siren_id).explain()
         
     if request.method == 'GET': 
         unitelegale_serializer = UnitelegaleSerializer(unitelegale, many=True)

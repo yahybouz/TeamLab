@@ -4,6 +4,13 @@ from django.db import models
 
 class Unitelegale(models.Model):
     siren = models.CharField(max_length=70, null=True)
+    class Meta:
+        indexes = [
+            models.Index(
+                fields=['siren'],
+                name='idx_siren',
+            ),
+        ]
     dateFin = models.DateField(null=True)
     dateDebut = models.DateField(null=True)
     etatAdministratifUniteLegale = models.CharField(max_length=70, null=True)

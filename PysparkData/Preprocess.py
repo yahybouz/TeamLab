@@ -16,13 +16,13 @@ from pyspark.sql import SparkSession
 from pyspark.sql import functions as f
 from pyspark.sql.functions import to_date
 
-
+print( "Télechargement et extraction du fichier StockUniteLegaleHistorique_utf8 ")
 # Loader first file
 fileZip1 = urllib.request.urlretrieve('https://files.data.gouv.fr/insee-sirene/StockUniteLegaleHistorique_utf8.zip', "Fichier1.zip")
 file1 = zipfile.ZipFile("Fichier1.zip")
 file1.extract('StockUniteLegaleHistorique_utf8.csv', './')
 file1.close()
-
+print( "Télechargement et extraction du fichier StockUniteLegaleHistorique_utf8 ")
 # Loader second file
 fileZip2 = urllib.request.urlretrieve('https://files.data.gouv.fr/insee-sirene/StockUniteLegale_utf8.zip', "Fichier2.zip")
 file2 = zipfile.ZipFile("Fichier2.zip")
@@ -102,8 +102,8 @@ properties=\
     "user": PSQL_USERNAME, \
     "password": PSQL_PASSWORD,\
     "driver": "org.postgresql.Driver"}
-
+print("chargement de notre base de données")
 df_join.write.jdbc(url=URL, table=TABLE, mode=mode, properties=properties)
-
+print("chargement terminé")
 
 
