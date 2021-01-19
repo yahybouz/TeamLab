@@ -1,4 +1,10 @@
 # TeamLab
+
+![N|Solid](https://le-datascientist.fr/wp-content/uploads/2019/02/logo-apache-spark.png) ![N|Solid](https://lucasvidelaine.files.wordpress.com/2018/10/postgresql2.png?w=600)![N|Solid](https://user.oc-static.com/upload/2019/05/10/15574814980481_Docker-660x269.png)
+
+## Intrdoduction
+
+L'objectif de ce projet est la mise en place d'une application de traitement d'un grand volume de données en utilisant Spark à l'aide de Pyspark. 
 Les données sont téléchargées  à l'aide des liens suivant: 
 https://files.data.gouv.fr/insee-sirene/StockUniteLegaleHistorique_utf8.zip
 https://files.data.gouv.fr/insee-sirene/StockUniteLegale_utf8.zip
