@@ -18,16 +18,16 @@ from pyspark.sql.functions import to_date
 
 
 # Loader first file
-#fileZip1 = urllib.request.urlretrieve('https://files.data.gouv.fr/insee-sirene/StockUniteLegaleHistorique_utf8.zip', "Fichier1.zip")
-#file1 = zipfile.ZipFile("Fichier1.zip")
-#file1.extract('StockUniteLegaleHistorique_utf8.csv', './')
-#file1.close()
+fileZip1 = urllib.request.urlretrieve('https://files.data.gouv.fr/insee-sirene/StockUniteLegaleHistorique_utf8.zip', "Fichier1.zip")
+file1 = zipfile.ZipFile("Fichier1.zip")
+file1.extract('StockUniteLegaleHistorique_utf8.csv', './')
+file1.close()
 
 # Loader second file
-#fileZip2 = urllib.request.urlretrieve('https://files.data.gouv.fr/insee-sirene/StockUniteLegale_utf8.zip', "Fichier2.zip")
-#file2 = zipfile.ZipFile("Fichier2.zip")
-#file2.extract('StockUniteLegale_utf8.csv', './')
-#file2.close()
+fileZip2 = urllib.request.urlretrieve('https://files.data.gouv.fr/insee-sirene/StockUniteLegale_utf8.zip', "Fichier2.zip")
+file2 = zipfile.ZipFile("Fichier2.zip")
+file2.extract('StockUniteLegale_utf8.csv', './')
+file2.close()
 
 
 config= SparkConf().setAppName("TeemLab").set("spark.jars", "postgresql-42.2.18.jar")
